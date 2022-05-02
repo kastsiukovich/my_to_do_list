@@ -13,7 +13,9 @@
 
 <body>
    <h1>Введите задачу</h1>
-
+   <div class="counter-finish ">
+      <p>Всего задач: <span>0</span>; Выполненных задач: <span>0</span>; Не выполненных задач: <span>0</span></p>
+   </div>
    <form action="#" class="form1">
       <div class="content">
          <div class="input1">
@@ -25,8 +27,10 @@
          </div>
          <button type="submit" class="btn1 btn btn-primary">Добавить задачу</button>
       </div>
+      <div class="tasks">
+      </div>
 
-
+      <div class="dev"></div>
       <button type="button" class="btn btn-primary btn2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ввести
          информацию о разработчике</button>
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -40,7 +44,7 @@
                <input class="input2" type="text" placeholder="ФИО">
                <div class="modal-footer">
                   <button type="button" class="btn btn-second" data-bs-dismiss="modal">Отменить</button>
-                  <button  type="button" class="btn4 btn btn-primaty">Подтвердить</button>
+                  <button type="button" class="btn4 btn btn-primaty">Подтвердить</button>
                </div>
                </ш>
             </div>

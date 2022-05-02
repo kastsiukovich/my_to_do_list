@@ -39,4 +39,8 @@ body .form1 .modal .modal-dialog .modal-content input {
 .none {
   display: none;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=main.css.map */
