@@ -5,7 +5,6 @@ let content1 = document.getElementsByClassName('content')[0];
 let input2 = document.querySelector('.input2');
 let btn4 = document.querySelector('.btn4');
 let tasks = document.querySelector('.tasks');
-// let tasks = document.getElementsByClassName('tasks')
 let counterFinish = document.getElementsByClassName('counter-finish')[0];
 let dev = document.querySelector('.dev')
 let blockTasts = document.querySelectorAll('.nev-task')[0]
@@ -18,7 +17,6 @@ const addTask = () => {
       tasks.innerHTML += (` <div class="nev-task"><p style="display: inline">${val}</p> <span style="color: grey">Delete</span></div>`);
       input1.value = "";
       counterTotal();
-      doneTask()
    }
 }
 btn1.addEventListener('click', addTask);
@@ -37,25 +35,35 @@ const infoDev = () => {
       document.querySelector('.modal-backdrop').classList.remove('show');
       document.querySelector('.modal-backdrop').classList.remove('fade');
       document.querySelector('.modal-backdrop').classList.add('none');
-
    }
 }
 btn4.addEventListener('click', infoDev);
+
 const done = (event) => {
-   console.log(event.target.closest('p'))
    if (event.target.closest('p') !== null) {
       event.target.classList.toggle('line-through')
    }
 }
 tasks.addEventListener('click', done);
 
-const counterTotal = (e) => {
-   // console.log(counterFinish.childNodes[1].childNodes[1].innerText, counterFinish.childNodes[1].childNodes[3].innerText, counterFinish.childNodes[1].childNodes[5].innerText
-   // )
-   let allTasks = counterFinish.childNodes[1].childNodes[1].innerText = tasks.children.length;
-   // console.log(e.target)
+const doneTask = () => {
+   let res = tasks.getElementsByClassName('line-through').length
+   counterTotal(res)
 }
-const doneTask = (e) => {
-   console.log(e.target.closest('line-trough'))
+document.addEventListener('click', doneTask)
 
+const counterTotal = (res) => {
+   counterFinish.childNodes[1].childNodes[1].innerText = tasks.children.length;
+   if (res !== undefined) {
+      console.log(res)
+      counterFinish.childNodes[1].childNodes[3].innerText = res;
+      counterFinish.childNodes[1].childNodes[5].innerText = (counterFinish.childNodes[1].childNodes[1].innerText - counterFinish.childNodes[1].childNodes[3].innerText)
+   }
 }
+const delet = (event) => {
+   if (event.target.closest('span') !== null) {
+      event.target.closest('.nev-task').remove()
+   }
+   counterTotal()
+}
+tasks.addEventListener('click', delet)
